@@ -11,6 +11,12 @@ public class BloomEffect : MonoBehaviour
     [Range(0, 10)]
     public float threshold = 1;
 
+    [Range(0, 1)]
+    public float softThreshold = 0.5f;
+
+    [Range(0, 10)]
+    public float intensity = 1;
+
     public bool debug;
 
     [NonSerialized]
@@ -30,7 +36,16 @@ public class BloomEffect : MonoBehaviour
             bloom.hideFlags = HideFlags.HideAndDontSave;
         }
 
-        bloom.SetFloat("_Threshold", threshold);
+        //bloom.SetFloat("_Threshold", threshold);
+        //bloom.SetFloat("_SoftThreshold", softThreshold);
+        float knee = threshold * softThreshold;
+        Vector4 filter;
+        filter.x = threshold;
+        filter.y = filter.x - knee;
+        filter.z = 2f * knee;
+        filter.w = 0.25f / (knee + 0.00001f);
+        bloom.SetVector("_Filter", filter);
+        bloom.SetFloat("_Intensity", Mathf.GammaToLinearSpace(intensity));
 
         RenderTexture[] textures = new RenderTexture[16];
         int width = source.width / 2;
