@@ -46,7 +46,7 @@
 			//half knee = _Threshold * _SoftThreshold;
 			half soft = brightness - _Filter.y;
 			soft = clamp(soft, 0, _Filter.z);
-			soft = soft * soft * _Filter.w);
+			soft = soft * soft * _Filter.w;
 			half contribution = max(soft, brightness - _Filter.x);
 			contribution /= max(brightness, 0.00001);
 			return c * contribution;
@@ -101,9 +101,9 @@
 				#pragma fragment FragmentProgram
 
 				half4 FragmentProgram(Interpolators i) : SV_Target{
-				half4 c = tex2D(_SourceTex, i.uv);
-				c.rgb += _Intensity * SampleBox(i.uv, 0.5);
-				return c;
+					half4 c = tex2D(_SourceTex, i.uv);
+					c.rgb += _Intensity * SampleBox(i.uv, 0.5);
+					return c;
 				}
 			ENDCG
 		}
