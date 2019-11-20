@@ -21,7 +21,7 @@
             half3 s =
                 Sample(uv + o.xy) + Sample(uv + o.zy) +
                 Sample(uv + o.xw) + Sample(uv + o.zw);
-            return s * 0.25f;
+			return s * 0.25f * half4(0.5, 1, 0, 0);
         }
 
         struct VertexData {
@@ -33,7 +33,7 @@
             float4 pos : SV_POSITION;
             float2 uv : TEXCOORD0;
         };
-
+		 
         Interpolators VertexProgram (VertexData v) {
             Interpolators i;
             i.pos = UnityObjectToClipPos(v.vertex);
