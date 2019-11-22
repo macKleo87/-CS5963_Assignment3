@@ -478,6 +478,8 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
+  - component: {fileID: 534669908}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -560,6 +562,34 @@ MonoBehaviour:
   focusDistance: 10
   focusRange: 3
   bokehRadius: 4
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8f0107479329e42b15aad7fa85ddef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloomShader: {fileID: 4800000, guid: 3712ea9d9486d294cb0d369c22f241b8, type: 3}
+  intensity: 1
+  iterations: 5
+  threshold: 1
+  softThreshold: 0.5
+  debug: 0
+--- !u!114 &534669908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a501246204675c94bb94aa788cdcdc89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &950688043
 Prefab:
   m_ObjectHideFlags: 0
