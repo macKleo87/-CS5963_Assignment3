@@ -7,8 +7,7 @@ public class Toggle : MonoBehaviour {
 
     void Start()
     {
-        gameObject.GetComponent<DepthOfFieldEffect>().enabled = true;
-        gameObject.GetComponent<BloomEffect>().enabled = true;
+        gameObject.GetComponent<BloomEffect>().enabled = false;
 
     }
     void Update()
